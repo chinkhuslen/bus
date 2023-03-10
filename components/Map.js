@@ -4,7 +4,7 @@ import { MapContainer, TileLayer } from "react-leaflet";
 const Map = () => {
   return (
     <MapContainer
-      className="w-4/5 h-screen"
+      className="w-4/5 h-screen -z-10"
       center={[52.505, -0.09]}
       zoom={13}
       scrollWheelZoom={[true]}

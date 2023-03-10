@@ -1,11 +1,17 @@
+import { useState } from "react";
 import Map from "../../components";
 function Index() {
+  const [isClicked, setIsClicked] = useState(false);
+  const handleDrawer = () => {
+    setIsClicked(!isClicked);
+    console.log(isClicked);
+  };
   return (
     <div className="flex flex-row">
       {/* Sidebar starts */}
       <div
         className="w-1/5 bg-[#0C1219]
-  h-screen flex-col"
+  h-screen flex-col z-10"
       >
         <div className="px-8 h-full flex w-full flex-col justify-between">
           <div>
@@ -32,7 +38,10 @@ function Index() {
                   <span className="text-sm  ml-2">Явц харах</span>
                 </div>
               </li>
-              <li className="flex w-full justify-between text-gray-400 hover:text-gray-500 cursor-pointer items-center mb-6">
+              <li
+                className="flex w-full justify-between text-gray-400 hover:text-gray-500 cursor-pointer items-center mb-6"
+                onClick={handleDrawer}
+              >
                 <div className="flex items-center">
                   <svg
                     width="26"
@@ -76,6 +85,18 @@ function Index() {
       </div>
       {/* Sidebar ends */}
       <Map />
+      <div
+        className="w-96 absolute bg-[#EEF1F4] h-screen z-0 flex flex-col items-center"
+        style={{ left: isClicked ? "20%" : "-20%", transition: "all ease .3s" }}
+      >
+        <div className="h-16 bg-white w-4/5 flex items-center rounded-lg justify-between p-5 mt-10">
+          <span>Жолооч бүртгэх</span>
+          <button className="h-8 w-8 bg-[#EEF1F4] rounded-md text-2xl flex justify-center items-center">
+            +
+          </button>
+        </div>
+        <div></div>
+      </div>
     </div>
   );
 }
