@@ -1,10 +1,14 @@
 import { useState } from "react";
 import Map from "../../components";
+import Image from "next/image";
+import profilePic from "../../public/img1.png";
 function Index() {
   const [isClicked, setIsClicked] = useState(false);
   const handleDrawer = () => {
     setIsClicked(!isClicked);
-    console.log(isClicked);
+  };
+  const closeDrawer = () => {
+    setIsClicked(false);
   };
   return (
     <div className="flex flex-row">
@@ -20,7 +24,10 @@ function Index() {
             </div>
             {/* nav */}
             <ul className="mt-24">
-              <li className="flex w-full justify-between text-gray-200 hover:text-gray-500 cursor-pointer items-center mb-6">
+              <li
+                className="flex w-full justify-between text-gray-200 hover:text-gray-500 cursor-pointer items-center mb-6"
+                onClick={closeDrawer}
+              >
                 <div className="flex items-center">
                   <svg
                     width="24"
@@ -86,8 +93,11 @@ function Index() {
       {/* Sidebar ends */}
       <Map />
       <div
-        className="w-96 absolute bg-[#EEF1F4] h-screen z-0 flex flex-col items-center"
-        style={{ left: isClicked ? "20%" : "-20%", transition: "all ease .3s" }}
+        className="w-1/3 absolute bg-[#EEF1F4] h-screen z-0 flex flex-col items-center"
+        style={{
+          left: isClicked ? "20%" : "-34%",
+          transition: "all ease .3s",
+        }}
       >
         <div className="h-16 bg-white w-4/5 flex items-center rounded-lg justify-between p-5 mt-10">
           <span>Жолооч бүртгэх</span>
@@ -95,7 +105,41 @@ function Index() {
             +
           </button>
         </div>
-        <div></div>
+        {/* employees */}
+        <div className="w-4/5 justify-center mt-10">
+          <div className="w-full">
+            <div className="w-full text-[#62C762]">Active</div>
+            <div className="w-full ">
+              <div className="w-full bg-white flex h-32 rounded-lg">
+                <div className="h-full flex items-center">
+                  <Image
+                    src={profilePic}
+                    width={100}
+                    height={100}
+                    className="rounded-lg ml-2"
+                    style={{ height: "100px", width: "100px" }}
+                    alt="profile"
+                  />
+                </div>
+                <div>
+                  <h1>ganbold ganbold</h1>
+                  <div>
+                    <div>
+                      <span>gandbold@gmail.com</span>
+                    </div>
+                    <div>
+                      <span>77000000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full">
+            <div className="w-full text-[#62C762]">Active</div>
+            <div className="w-full">person</div>
+          </div>
+        </div>
       </div>
     </div>
   );
