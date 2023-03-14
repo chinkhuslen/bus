@@ -2,6 +2,9 @@ import { useState } from "react";
 import Map from "../../components";
 import Image from "next/image";
 import profilePic from "../../public/img1.png";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 function Index() {
   const [isClicked, setIsClicked] = useState(false);
   const handleDrawer = () => {
@@ -15,7 +18,7 @@ function Index() {
       {/* Sidebar starts */}
       <div
         className="w-1/5 bg-[#0C1219]
-  h-screen flex-col z-10"
+  h-screen flex-col z-20"
       >
         <div className="px-8 h-full flex w-full flex-col justify-between">
           <div>
@@ -93,7 +96,7 @@ function Index() {
       {/* Sidebar ends */}
       <Map />
       <div
-        className="w-1/3 absolute bg-[#EEF1F4] h-screen z-0 flex flex-col items-center"
+        className="w-1/3 absolute bg-[#EEF1F4] h-screen z-10 flex flex-col items-center"
         style={{
           left: isClicked ? "20%" : "-34%",
           transition: "all ease .3s",
@@ -108,7 +111,9 @@ function Index() {
         {/* employees */}
         <div className="w-4/5 justify-center mt-10">
           <div className="w-full">
-            <div className="w-full text-[#62C762]">Active</div>
+            <div className="w-full text-[#62C762]">
+              <FiberManualRecordIcon /> Active
+            </div>
             <div className="w-full ">
               <div className="w-full bg-white flex h-32 rounded-lg">
                 <div className="h-full flex items-center">
@@ -125,9 +130,11 @@ function Index() {
                   <h1>ganbold ganbold</h1>
                   <div>
                     <div>
+                      <EmailIcon />
                       <span>gandbold@gmail.com</span>
                     </div>
                     <div>
+                      <PhoneIcon />
                       <span>77000000</span>
                     </div>
                   </div>
@@ -136,8 +143,37 @@ function Index() {
             </div>
           </div>
           <div className="w-full">
-            <div className="w-full text-[#62C762]">Active</div>
-            <div className="w-full">person</div>
+            <div className="w-full text-[#5C5C5C]">
+              <FiberManualRecordIcon />
+              Non-active
+            </div>
+            <div className="w-full ">
+              <div className="w-full bg-white flex h-32 rounded-lg">
+                <div className="h-full flex items-center">
+                  <Image
+                    src={profilePic}
+                    width={100}
+                    height={100}
+                    className="rounded-lg ml-2"
+                    style={{ height: "100px", width: "100px" }}
+                    alt="profile"
+                  />
+                </div>
+                <div>
+                  <h1>ganbold ganbold</h1>
+                  <div>
+                    <div>
+                      <EmailIcon />
+                      <span>gandbold@gmail.com</span>
+                    </div>
+                    <div>
+                      <PhoneIcon />
+                      <span>77000000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
