@@ -5,6 +5,7 @@ import profilePic from "../../public/img1.png";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import { createUser } from "@/firebase/useFirebase";
 function Index() {
   const [isClicked, setIsClicked] = useState(false);
   const handleDrawer = () => {
@@ -104,7 +105,10 @@ function Index() {
       >
         <div className="h-16 bg-white w-4/5 flex items-center rounded-lg justify-between p-5 mt-10">
           <span>Жолооч бүртгэх</span>
-          <button className="h-8 w-8 bg-[#EEF1F4] rounded-md text-2xl flex justify-center items-center">
+          <button
+            className="h-8 w-8 bg-[#EEF1F4] rounded-md text-2xl flex justify-center items-center"
+            onClick={createUser}
+          >
             +
           </button>
         </div>
